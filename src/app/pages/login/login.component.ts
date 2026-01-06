@@ -1,11 +1,24 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
+  correo = '';
+  contrasena = '';
+
+ 
+    crearLogin(){
+      console.log('correo', this.correo),
+      console.log('contraseña', this.contrasena)
+      
+    }
+
 
 }
