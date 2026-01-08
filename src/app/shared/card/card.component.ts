@@ -9,4 +9,7 @@ import { Mascota } from '../../services/mascotas/mascotas.service';
 })
 export class CardComponent {
   @Input() mascota!: Mascota;
+
+
+  
 }

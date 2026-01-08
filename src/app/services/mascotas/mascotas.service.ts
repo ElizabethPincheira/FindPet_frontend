@@ -9,7 +9,7 @@ export interface Mascota {
   usuario_id: number;
   raza: string;
   color: string;
-  descripción: string;
+  descripcion: string;
 }
 
 @Injectable({
