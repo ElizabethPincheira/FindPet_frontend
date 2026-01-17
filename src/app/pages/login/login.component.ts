@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,7 +17,10 @@ export class LoginComponent {
   contrasena = '';
 
  
-constructor(private authService:AuthService){}
+constructor(
+  private authService: AuthService,
+  private router: Router
+) {}
 
     async crearLogin(){
       console.log('correo', this.correo),
@@ -34,6 +39,12 @@ constructor(private authService:AuthService){}
       console.log('respuesta', respuesta)
 
     }
+
+    volver() {
+  this.router.navigate(['/home']);
+  // o '/login', '/home', según tu routing
+}
+
 
 
 }
