@@ -1,0 +1,50 @@
+.btn-pink {
+  background-color: #e83e8c;
+  border-color: #e83e8c;
+  color: white;
+}
+
+/* Hover */
+.btn-pink:hover {
+  background-color: #d63384;
+  border-color: #d63384;
+  color: white;
+}
+
+/* Focus (accesibilidad) */
+.btn-pink:focus {
+  box-shadow: 0 0 0 0.25rem rgba(232, 62, 140, 0.4);
+}
+
+/* Active (cuando se presiona) */
+.btn-pink:active {
+  background-color: #c2256e;
+  border-color: #c2256e;
+}
+
+/* Disabled */
+.btn-pink:disabled {
+  background-color: #f1a7c6;
+  border-color: #f1a7c6;
+  cursor: not-allowed;
+}
+
+.hero-banner {
+  /* Ruta a tu imagen */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                   url('../../../assets/images/img_banner.jpg');
+  
+  /* Ajustes de fondo */
+  background-size: cover;      /* Cubre todo el espacio sin deformar */
+  background-position: center; /* Centra la foto */
+  background-repeat: no-repeat;
+  
+  /* Dimensiones */
+  min-height: 300px;           /* Altura mínima para que se vea el banner */
+  width: 100%;
+}
+
+.btn-pink {
+    background-color: #ff4081; /* Ajusta a tu tono de rosado */
+    border: none;
+}
