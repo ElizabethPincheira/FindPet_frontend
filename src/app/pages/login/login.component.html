@@ -1,22 +1,55 @@
 <div class="container">
     <h2>Inicio de sesión</h2>
 </div>
+
+
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <form (ngSubmit)="crearLogin()">
+
+            <p class="text-muted">
+                Ingresa un correo válido y una contraseña de al menos 6 caracteres.
+            </p>
+
+            <form #loginForm="ngForm" (ngSubmit)="crearLogin()" novalidate>
+
+                <!-- CORREO -->
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Ingresa tu correo electrónico</label>
-                    <input type="email" class="form-control" [(ngModel)]="correo" name="correo" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                    <label class="form-label">Ingresa tu correo electrónico</label>
+
+                    <input type="email" class="form-control" name="correo" [(ngModel)]="correo" required email
+                        #correoCtrl="ngModel" />
+
+                    <div class="text-danger mt-1" *ngIf="correoCtrl.touched && correoCtrl.invalid">
+                        <div *ngIf="correoCtrl.errors?.['required']">
+                            El correo es obligatorio
+                        </div>
+                        <div *ngIf="correoCtrl.errors?.['email']">
+                            El correo debe tener formato válido (ej: nombre&#64;correo.cl)
+                        </div>
+                    </div>
                 </div>
+
+                <!-- CONTRASEÑA -->
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Ingresa tu contraseña</label>
-                    <input type="password" class="form-control" [(ngModel)]="contrasena" name="contrasena"
-                        id="exampleInputPassword1">
+                    <label class="form-label">Ingresa tu contraseña</label>
+
+                    <input type="password" class="form-control" name="contrasena" [(ngModel)]="contrasena" required
+                        minlength="6" #passwordCtrl="ngModel" />
+
+                    <div class="text-danger mt-1" *ngIf="passwordCtrl.touched && passwordCtrl.invalid">
+                        <div *ngIf="passwordCtrl.errors?.['required']">
+                            La contraseña es obligatoria
+                        </div>
+                        <div *ngIf="passwordCtrl.errors?.['minlength']">
+                            La contraseña debe tener al menos 6 caracteres
+                        </div>
+                    </div>
                 </div>
+
+                <!-- BOTONES -->
                 <div class="d-grid gap-3">
-                    <button type="button" class="btn btn-primary btn-pink" (click)="crearLogin()">
+                    <button type="submit" class="btn btn-primary btn-pink" [disabled]="loginForm.invalid">
                         Entrar
                     </button>
 
@@ -24,6 +57,7 @@
                         Volver
                     </button>
                 </div>
+
             </form>
         </div>
     </div>

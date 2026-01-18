@@ -24,14 +24,16 @@ export class LoginComponent {
   ) { }
 
   async crearLogin() {
-    console.log('correo', this.correo),
-    console.log('contraseña', this.contrasena)
-    console.log('👉 crearLogin fue llamado');
+  console.log('correo', this.correo);
+  console.log('contraseña', this.contrasena);
+  console.log('crearLogin fue llamado');
 
+  try {
+    const respuesta = await this.authService.login(
+      this.correo,
+      this.contrasena
+    );
 
-    const respuesta = await this.authService.login(this.correo, this.contrasena)
-
-    //se guarda el token y el nombre en localstorage
     if (respuesta.access_token) {
       localStorage.setItem('token', respuesta.access_token);
       localStorage.setItem('usuario_nombre', respuesta.nombre);
@@ -39,18 +41,20 @@ export class LoginComponent {
       console.log('token guardado:', localStorage.getItem('token'));
       console.log('nombre guardado:', localStorage.getItem('usuario_nombre'));
 
-
+      console.log('login exitoso');
 
       this.router.navigate(['/home']);
-
-      console.log('login exitoso');
-    } else {
-      console.log('error en el login');
     }
 
-    console.log('respuesta', respuesta)
+    console.log('respuesta', respuesta);
 
+  } catch (error: any) {
+    console.error('Error en login:', error);
+
+    alert('Correo o contraseña incorrectos');
   }
+}
+
 
   volver() {
     this.router.navigate(['/home']);
