@@ -6,6 +6,7 @@ import axios from "axios";
 })
 
 export class AuthService {
+  
 
     async login(correo: string, contrasena: string) {
         const urlPrincipal = 'http://localhost:3000/auth/';
