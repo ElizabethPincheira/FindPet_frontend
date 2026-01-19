@@ -28,3 +28,26 @@
   border-color: #f1a7c6;
   cursor: not-allowed;
 }
+
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+}
+
+.modal-custom {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+  z-index: 9999;
+}

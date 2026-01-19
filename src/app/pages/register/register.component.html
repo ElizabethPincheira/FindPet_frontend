@@ -1,127 +1,117 @@
 <div class="container mt-4">
-  <h2>Registro de usuario</h2>
+    <h2>Registro de usuario</h2>
 
-  <div class="card mt-3">
-    <div class="card-body">
+    <div class="card mt-3">
+        <div class="card-body">
 
-      <form #registerForm="ngForm" (ngSubmit)="register()" novalidate>
+            <form #registerForm="ngForm" (ngSubmit)="register()" novalidate>
 
-        <!-- NOMBRE -->
-        <div class="mb-3">
-          <label class="form-label">Nombre</label>
-          <input type="text"
-                 class="form-control"
-                 name="nombre"
-                 [(ngModel)]="nombre"
-                 required
-                 minlength="3"
-                 #nombreCtrl="ngModel">
+                <!-- NOMBRE -->
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="nombre" required minlength="3"
+                        #nombreCtrl="ngModel">
 
-          <div class="text-danger mt-1" *ngIf="nombreCtrl.touched && nombreCtrl.invalid">
-            <div *ngIf="nombreCtrl.errors?.['required']">
-              El nombre es obligatorio
-            </div>
-            <div *ngIf="nombreCtrl.errors?.['minlength']">
-              El nombre debe tener al menos 3 caracteres
-            </div>
-          </div>
+                    <div class="text-danger mt-1" *ngIf="nombreCtrl.touched && nombreCtrl.invalid">
+                        <div *ngIf="nombreCtrl.errors?.['required']">
+                            El nombre es obligatorio
+                        </div>
+                        <div *ngIf="nombreCtrl.errors?.['minlength']">
+                            El nombre debe tener al menos 3 caracteres
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- apellido -->
+                <div class="mb-3">
+                    <label class="form-label">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" [(ngModel)]="apellido" required
+                        minlength="3" #apellidoCtrl="ngModel">
+
+                    <div class="text-danger mt-1" *ngIf="apellidoCtrl.touched && apellidoCtrl.invalid">
+                        <div *ngIf="apellidoCtrl.errors?.['required']">
+                            El apellido es obligatorio
+                        </div>
+                        <div *ngIf="apellidoCtrl.errors?.['minlength']">
+                            El apellido debe tener al menos 3 caracteres
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <!-- CORREO -->
+                <div class="mb-3">
+                    <label class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" name="correo" [(ngModel)]="correo" required email
+                        #correoCtrl="ngModel">
+
+                    <div class="text-danger mt-1" *ngIf="correoCtrl.touched && correoCtrl.invalid">
+                        <div *ngIf="correoCtrl.errors?.['required']">
+                            El correo es obligatorio
+                        </div>
+                        <div *ngIf="correoCtrl.errors?.['email']">
+                            Formato inválido (ej: nombre&#64;correo.cl)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTRASEÑA -->
+                <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" name="contrasena" [(ngModel)]="contrasena" required
+                        minlength="6" #passCtrl="ngModel">
+
+                    <div class="text-danger mt-1" *ngIf="passCtrl.touched && passCtrl.invalid">
+                        <div *ngIf="passCtrl.errors?.['required']">
+                            La contraseña es obligatoria
+                        </div>
+                        <div *ngIf="passCtrl.errors?.['minlength']">
+                            Mínimo 6 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REPETIR CONTRASEÑA -->
+                <div class="mb-3">
+                    <label class="form-label">Repetir contraseña</label>
+                    <input type="password" class="form-control" name="repetirContrasena" [(ngModel)]="repetirContrasena"
+                        required>
+                </div>
+
+                <div class="d-grid gap-3">
+                    <button class="btn btn-primary btn-pink" type="submit" [disabled]="registerForm.invalid">
+                        Registrar
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" (click)="volver()">
+                        Volver
+                    </button>
+                </div>
+
+            </form>
+
         </div>
-
-
-        <!-- apellido -->
-        <div class="mb-3">
-          <label class="form-label">Apellido</label>
-          <input type="text"
-                 class="form-control"
-                 name="apellido"
-                 [(ngModel)]="apellido"
-                 required
-                 minlength="3"
-                 #apellidoCtrl="ngModel">
-
-          <div class="text-danger mt-1" *ngIf="apellidoCtrl.touched && apellidoCtrl.invalid">
-            <div *ngIf="apellidoCtrl.errors?.['required']">
-              El apellido es obligatorio
-            </div>
-            <div *ngIf="apellidoCtrl.errors?.['minlength']">
-              El apellido debe tener al menos 3 caracteres
-            </div>
-          </div>
-        </div>
-        
-
-
-
-
-
-        <!-- CORREO -->
-        <div class="mb-3">
-          <label class="form-label">Correo electrónico</label>
-          <input type="email"
-                 class="form-control"
-                 name="correo"
-                 [(ngModel)]="correo"
-                 required
-                 email
-                 #correoCtrl="ngModel">
-
-          <div class="text-danger mt-1" *ngIf="correoCtrl.touched && correoCtrl.invalid">
-            <div *ngIf="correoCtrl.errors?.['required']">
-              El correo es obligatorio
-            </div>
-            <div *ngIf="correoCtrl.errors?.['email']">
-              Formato inválido (ej: nombre&#64;correo.cl)
-            </div>
-          </div>
-        </div>
-
-        <!-- CONTRASEÑA -->
-        <div class="mb-3">
-          <label class="form-label">Contraseña</label>
-          <input type="password"
-                 class="form-control"
-                 name="contrasena"
-                 [(ngModel)]="contrasena"
-                 required
-                 minlength="6"
-                 #passCtrl="ngModel">
-
-          <div class="text-danger mt-1" *ngIf="passCtrl.touched && passCtrl.invalid">
-            <div *ngIf="passCtrl.errors?.['required']">
-              La contraseña es obligatoria
-            </div>
-            <div *ngIf="passCtrl.errors?.['minlength']">
-              Mínimo 6 caracteres
-            </div>
-          </div>
-        </div>
-
-        <!-- REPETIR CONTRASEÑA -->
-        <div class="mb-3">
-          <label class="form-label">Repetir contraseña</label>
-          <input type="password"
-                 class="form-control"
-                 name="repetirContrasena"
-                 [(ngModel)]="repetirContrasena"
-                 required>
-        </div>
-
-        <div class="d-grid gap-3">
-          <button class="btn btn-primary btn-pink"
-                  type="submit"
-                  [disabled]="registerForm.invalid">
-            Registrar
-          </button>
-
-          <button type="button"
-                  class="btn btn-secondary"
-                  (click)="volver()">
-            Volver
-          </button>
-        </div>
-
-      </form>
-
     </div>
-  </div>
+
+
+
+    <div class="modal-backdrop" *ngIf="mostrarModal">
+        <div class="modal-custom">
+            <h4>🎉 Registro exitoso</h4>
+            <p>Tu cuenta fue creada correctamente.</p>
+
+            <p style="color:red">SI VES ESTO, EL MODAL ESTÁ BIEN</p>
+
+
+            <button class="btn btn-primary btn-pink" (click)="irAlLogin()">
+                Ir a iniciar sesión
+            </button>
+        </div>
+    </div>
+
 </div>
