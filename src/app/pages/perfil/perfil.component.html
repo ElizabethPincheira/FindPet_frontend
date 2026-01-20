@@ -5,8 +5,9 @@
     </div>
     <div class="container d-flex align-items-center justify-content-center gap-4">
         <div>
-            <!-- BOTON REGISTRAR MASCOTA-->
-            <button type="button" class="btn btn-primary btn-pink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <!-- BOTON AGREGAR MASCOTA-->
+            <button type="button" class="btn btn-primary btn-pink" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
                 Agrega una mascota
             </button>
 
@@ -16,15 +17,48 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Agrega tu Mascota</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+
                         <div class="modal-body">
-                            ...
+                            <p style="color: #FF69B4;">* Campos obligatorios</p>
+                            <!-- FORMULARIO -->
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Nombre mascota *</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Washington">
+                            </div>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Tipo de mascota *</option>
+                                <option value="1">Perro</option>
+                                <option value="2">Gato</option>
+                                <option value="3">Otros</option>
+                            </select>
+                            <br>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Características *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Sociable, responde al nombre de..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Raza</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Terrier Chileno">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Color</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Blanco con manchas negras">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Número de chip</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Optativo">
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btn-pink">Guardar mascota</button>
                         </div>
                     </div>
                 </div>
@@ -32,25 +66,56 @@
         </div>
         <div>
             <!-- BOTON CREAR REPORTE -->
-            <button type="button" class="btn btn-primary btn-pink" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary btn-pink" data-bs-toggle="modal"
+                data-bs-target="#exampleModal2">
                 Crea un reporte
             </button>
 
             <!-- MODAL CREAR REPORTE -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Crea un reporte</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <p style="color: #FF69B4;">* Todos los campos son obligatorios</p>
+                            <!-- FORMULARIO -->
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Título del reporte *</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="Washington">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Características del reporte *</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Se perdio cuando..."></textarea>
+                            </div>
+                             <select class="form-select" aria-label="Default select example">
+                                <option selected>Mi mascota esta *</option>
+                                <option value="1">Perdida</option>
+                                <option value="2">Robada</option>
+                                <option value="3">En adopción</option>
+                            </select>
+                            <br>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Región *</option>
+                                <option value="1">x1</option>
+                                <option value="2">x2</option>
+                                <option value="3">x3</option>
+                            </select>
+                            <br>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Comuna *</option>
+                                <option value="1">x1</option>
+                                <option value="2">x2</option>
+                                <option value="3">x3</option>
+                            </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btn-pink">Guardar reporte</button>
                         </div>
                     </div>
                 </div>
