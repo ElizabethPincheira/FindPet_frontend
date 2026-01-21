@@ -6,7 +6,7 @@
   <div class="d-flex justify-content-center gap-4">
 
     <!-- BOTÓN AGREGAR MASCOTA -->
-    <button class="btn btn-primary btn-pink" data-bs-toggle="modal" data-bs-target="#modalMascota">
+    <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#modalMascota">
       Agrega una mascota
     </button>
 
@@ -25,47 +25,30 @@
             <div class="modal-body">
               <p class="text-danger">* Campos obligatorios</p>
 
-              <input class="form-control mb-2"
-                placeholder="Nombre *"
-                name="nombre"
-                [(ngModel)]="mascota.nombre"
+              <input class="form-control mb-2" placeholder="Nombre *" name="nombre" [(ngModel)]="mascota.nombre"
                 required />
 
-              <select class="form-select mb-2"
-                name="tipo_mascota"
-                [(ngModel)]="mascota.tipo_mascota"
-                required>
+              <select class="form-select mb-2" name="tipo_mascota" [(ngModel)]="mascota.tipo_mascota" required>
                 <option value="" disabled>Tipo *</option>
                 <option value="Perro">Perro</option>
                 <option value="Gato">Gato</option>
                 <option value="Otro">Otro</option>
               </select>
 
-              <textarea class="form-control mb-2"
-                placeholder="Descripción *"
-                name="descripcion"
-                [(ngModel)]="mascota.descripcion"
-                required></textarea>
+              <textarea class="form-control mb-2" placeholder="Descripción *" name="descripcion"
+                [(ngModel)]="mascota.descripcion" required></textarea>
 
-              <input class="form-control mb-2"
-                placeholder="Raza"
-                name="raza"
-                [(ngModel)]="mascota.raza" />
+              <input class="form-control mb-2" placeholder="Raza" name="raza" [(ngModel)]="mascota.raza" />
 
-              <input class="form-control mb-2"
-                placeholder="Color"
-                name="color"
-                [(ngModel)]="mascota.color" />
+              <input class="form-control mb-2" placeholder="Color" name="color" [(ngModel)]="mascota.color" />
 
-              <input class="form-control"
-                placeholder="Número chip"
-                name="numero_chip"
+              <input type="text" class="form-control" placeholder="Número chip" name="numero_chip"
                 [(ngModel)]="mascota.numero_chip" />
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button class="btn btn-primary btn-pink" [disabled]="mascotaForm.invalid">
+              <button class="btn btn-pink" data-bs-dismiss="modal">Cerrar</button>
+              <button class="btn btn-pink" [disabled]="mascotaForm.invalid">
                 Guardar mascota
               </button>
             </div>
@@ -76,7 +59,7 @@
     </div>
 
     <!-- BOTÓN REPORTE -->
-    <button class="btn btn-primary btn-pink" data-bs-toggle="modal" data-bs-target="#modalReporte">
+    <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#modalReporte">
       Crea un reporte
     </button>
 
@@ -93,44 +76,28 @@
             </div>
 
             <div class="modal-body">
-              <input class="form-control mb-2"
-                placeholder="Título *"
-                name="titulo"
-                [(ngModel)]="reporte.titulo"
+              <input class="form-control mb-2" placeholder="Título *" name="titulo" [(ngModel)]="reporte.titulo"
                 required />
 
-              <textarea class="form-control mb-2"
-                placeholder="Descripción *"
-                name="descripcion"
-                [(ngModel)]="reporte.descripcion"
-                required></textarea>
+              <textarea class="form-control mb-2" placeholder="Descripción *" name="descripcion"
+                [(ngModel)]="reporte.descripcion" required></textarea>
 
-              <select class="form-select mb-2"
-                name="estado"
-                [(ngModel)]="reporte.estado"
-                required>
+              <select class="form-select mb-2" name="estado" [(ngModel)]="reporte.estado" required>
                 <option value="" disabled>Estado *</option>
                 <option value="Perdida">Perdida</option>
                 <option value="Robada">Robada</option>
                 <option value="Adopcion">En adopción</option>
               </select>
 
-              <input class="form-control mb-2"
-                placeholder="Región *"
-                name="region"
-                [(ngModel)]="reporte.region"
+              <input class="form-control mb-2" placeholder="Región *" name="region" [(ngModel)]="reporte.region"
                 required />
 
-              <input class="form-control"
-                placeholder="Comuna *"
-                name="comuna"
-                [(ngModel)]="reporte.comuna"
-                required />
+              <input class="form-control" placeholder="Comuna *" name="comuna" [(ngModel)]="reporte.comuna" required />
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button class="btn btn-primary btn-pink" [disabled]="reporteForm.invalid">
+              <button class="btn btn-pink" data-bs-dismiss="modal">Cerrar</button>
+              <button class="btn btn-pink" [disabled]="reporteForm.invalid">
                 Guardar reporte
               </button>
             </div>

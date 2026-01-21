@@ -1,29 +1,29 @@
-.btn-pink {
+.btn.btn-pink {
   background-color: #e83e8c;
   border-color: #e83e8c;
   color: white;
 }
 
 /* Hover */
-.btn-pink:hover {
+.btn.btn-pink:hover {
   background-color: #d63384;
   border-color: #d63384;
   color: white;
 }
 
 /* Focus (accesibilidad) */
-.btn-pink:focus {
+.btn.btn-pink:focus {
   box-shadow: 0 0 0 0.25rem rgba(232, 62, 140, 0.4);
 }
 
 /* Active (cuando se presiona) */
-.btn-pink:active {
+.btn.btn-pink:active {
   background-color: #c2256e;
   border-color: #c2256e;
 }
 
 /* Disabled */
-.btn-pink:disabled {
+.btn.btn-pink:disabled {
   background-color: #f1a7c6;
   border-color: #f1a7c6;
   cursor: not-allowed;

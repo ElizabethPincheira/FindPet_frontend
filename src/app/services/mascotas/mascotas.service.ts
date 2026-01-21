@@ -18,8 +18,11 @@ export interface Mascota {
 })
 export class MascotasService {
 
+
+  //AQUI OBTENGO MIS MASCOTAS
   async obtenerMisMascotas(): Promise<Mascota[]> {
   const token = localStorage.getItem('token');
+  console.log('TOKEN:', token);
 
   const response = await axios.get<Mascota[]>(
     'http://localhost:3000/mascotas/mis-mascotas',
@@ -30,7 +33,26 @@ export class MascotasService {
     }
   );
 
-  return response.data; // 👈 SOLO los datos
+  return response.data; //Solo los datos
+}
+
+  //AQUI CREO UNA MASCOTA POR MEDIO DEL FORMULARIO
+async crearMascota(mascota: any) {
+  const token = localStorage.getItem('token');
+  console.log('ENVIANDO MASCOTA:', mascota);
+
+
+  const response = await axios.post(
+    'http://localhost:3000/mascotas',
+    mascota,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return response.data;
 }
 
 }
