@@ -6,11 +6,13 @@ import { MascotasComponent } from './pages/mascotas/mascotas.component';
 import { FundacionComponent } from './pages/fundacion/fundacion.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
     { path:'', component:MainlayoutComponent,
         children:[
-            { path: 'home', component: MascotasComponent },//en realidad aqui deberian estar las publicaciones
+            { path: 'home', component: HomeComponent },// publicaciones
+            { path: 'mascotas', component: MascotasComponent },
             { path: 'fundacion', component: FundacionComponent },
             { path: 'registro', component:  RegisterComponent},
             { path: 'perfil', component:  PerfilComponent},

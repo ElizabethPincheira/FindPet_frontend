@@ -1,125 +1,147 @@
 <div class="container">
-    <div class="container text-center">
-        <h2>Bienvenido {{ nombreUsuario || 'Usuario' }}</h2>
-        <br />
-    </div>
-    <div class="container d-flex align-items-center justify-content-center gap-4">
-        <div>
-            <!-- BOTON AGREGAR MASCOTA-->
-            <button type="button" class="btn btn-primary btn-pink" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-                Agrega una mascota
-            </button>
+  <div class="text-center">
+    <h2>Bienvenido {{ nombreUsuario || 'Usuario' }}</h2>
+  </div>
 
-            <!-- MODAL REGISTRAR MASCOTA -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Agrega tu Mascota</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+  <div class="d-flex justify-content-center gap-4">
 
-                        <div class="modal-body">
-                            <p style="color: #FF69B4;">* Campos obligatorios</p>
-                            <!-- FORMULARIO -->
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Nombre mascota *</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Washington">
-                            </div>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Tipo de mascota *</option>
-                                <option value="1">Perro</option>
-                                <option value="2">Gato</option>
-                                <option value="3">Otros</option>
-                            </select>
-                            <br>
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Características *</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Sociable, responde al nombre de..."></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Raza</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Terrier Chileno">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Color</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Blanco con manchas negras">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Número de chip</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Optativo">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary btn-pink">Guardar mascota</button>
-                        </div>
-                    </div>
-                </div>
+    <!-- BOTÓN AGREGAR MASCOTA -->
+    <button class="btn btn-primary btn-pink" data-bs-toggle="modal" data-bs-target="#modalMascota">
+      Agrega una mascota
+    </button>
+
+    <!-- MODAL MASCOTA -->
+    <div class="modal fade" id="modalMascota">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <form #mascotaForm="ngForm" (ngSubmit)="guardarMascota()">
+
+            <div class="modal-header">
+              <h5 class="modal-title">Agrega tu Mascota</h5>
+              <button class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-        </div>
-        <div>
-            <!-- BOTON CREAR REPORTE -->
-            <button type="button" class="btn btn-primary btn-pink" data-bs-toggle="modal"
-                data-bs-target="#exampleModal2">
-                Crea un reporte
-            </button>
 
-            <!-- MODAL CREAR REPORTE -->
-            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Crea un reporte</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p style="color: #FF69B4;">* Todos los campos son obligatorios</p>
-                            <!-- FORMULARIO -->
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Título del reporte *</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="Washington">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Características del reporte *</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Se perdio cuando..."></textarea>
-                            </div>
-                             <select class="form-select" aria-label="Default select example">
-                                <option selected>Mi mascota esta *</option>
-                                <option value="1">Perdida</option>
-                                <option value="2">Robada</option>
-                                <option value="3">En adopción</option>
-                            </select>
-                            <br>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Región *</option>
-                                <option value="1">x1</option>
-                                <option value="2">x2</option>
-                                <option value="3">x3</option>
-                            </select>
-                            <br>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Comuna *</option>
-                                <option value="1">x1</option>
-                                <option value="2">x2</option>
-                                <option value="3">x3</option>
-                            </select>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary btn-pink">Guardar reporte</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-body">
+              <p class="text-danger">* Campos obligatorios</p>
+
+              <input class="form-control mb-2"
+                placeholder="Nombre *"
+                name="nombre"
+                [(ngModel)]="mascota.nombre"
+                required />
+
+              <select class="form-select mb-2"
+                name="tipo_mascota"
+                [(ngModel)]="mascota.tipo_mascota"
+                required>
+                <option value="" disabled>Tipo *</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Otro">Otro</option>
+              </select>
+
+              <textarea class="form-control mb-2"
+                placeholder="Descripción *"
+                name="descripcion"
+                [(ngModel)]="mascota.descripcion"
+                required></textarea>
+
+              <input class="form-control mb-2"
+                placeholder="Raza"
+                name="raza"
+                [(ngModel)]="mascota.raza" />
+
+              <input class="form-control mb-2"
+                placeholder="Color"
+                name="color"
+                [(ngModel)]="mascota.color" />
+
+              <input class="form-control"
+                placeholder="Número chip"
+                name="numero_chip"
+                [(ngModel)]="mascota.numero_chip" />
             </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button class="btn btn-primary btn-pink" [disabled]="mascotaForm.invalid">
+                Guardar mascota
+              </button>
+            </div>
+
+          </form>
         </div>
+      </div>
     </div>
+
+    <!-- BOTÓN REPORTE -->
+    <button class="btn btn-primary btn-pink" data-bs-toggle="modal" data-bs-target="#modalReporte">
+      Crea un reporte
+    </button>
+
+    <!-- MODAL REPORTE -->
+    <div class="modal fade" id="modalReporte">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <form #reporteForm="ngForm" (ngSubmit)="guardarReporte()">
+
+            <div class="modal-header">
+              <h5 class="modal-title">Crear reporte</h5>
+              <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+              <input class="form-control mb-2"
+                placeholder="Título *"
+                name="titulo"
+                [(ngModel)]="reporte.titulo"
+                required />
+
+              <textarea class="form-control mb-2"
+                placeholder="Descripción *"
+                name="descripcion"
+                [(ngModel)]="reporte.descripcion"
+                required></textarea>
+
+              <select class="form-select mb-2"
+                name="estado"
+                [(ngModel)]="reporte.estado"
+                required>
+                <option value="" disabled>Estado *</option>
+                <option value="Perdida">Perdida</option>
+                <option value="Robada">Robada</option>
+                <option value="Adopcion">En adopción</option>
+              </select>
+
+              <input class="form-control mb-2"
+                placeholder="Región *"
+                name="region"
+                [(ngModel)]="reporte.region"
+                required />
+
+              <input class="form-control"
+                placeholder="Comuna *"
+                name="comuna"
+                [(ngModel)]="reporte.comuna"
+                required />
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button class="btn btn-primary btn-pink" [disabled]="reporteForm.invalid">
+                Guardar reporte
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br />
+  <app-mascotas></app-mascotas>
 </div>

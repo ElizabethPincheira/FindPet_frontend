@@ -12,20 +12,26 @@ export interface Mascota {
   descripcion: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
 
+@Injectable({
+  providedIn: 'root',
+})
 export class MascotasService {
 
-  constructor() { }
+  async obtenerMisMascotas(): Promise<Mascota[]> {
+  const token = localStorage.getItem('token');
 
-  //listar mascotas
-  async obtenerMascotas() {
+  const response = await axios.get<Mascota[]>(
+    'http://localhost:3000/mascotas/mis-mascotas',
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
-    const misMascotas = await axios.get('http://localhost:3000/mascotas')
-    
-
-   return misMascotas.data
-  }
+  return response.data; // 👈 SOLO los datos
 }
+
+}
+
