@@ -9,14 +9,17 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-    { path:'', component:MainlayoutComponent,
-        children:[
+    {
+        path: '', component: MainlayoutComponent,
+        children: [
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },// publicaciones
             { path: 'mascotas', component: MascotasComponent },
             { path: 'fundacion', component: FundacionComponent },
-            { path: 'registro', component:  RegisterComponent},
-            { path: 'perfil', component:  PerfilComponent},
-        ]}
-   ,
-   { path: 'login', component: LoginComponent },
+            { path: 'registro', component: RegisterComponent },
+            { path: 'perfil', component: PerfilComponent },
+        ]
+    }
+    ,
+    { path: 'login', component: LoginComponent },
 ];
