@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from "../../../environments/environment";
 
 
 export interface Mascota {
@@ -12,48 +13,46 @@ export interface Mascota {
   descripcion: string;
 }
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class MascotasService {
 
+    private apiUrl = environment.apiUrl + '/auth';
 
-  //AQUI OBTENGO MIS MASCOTAS
+
+  // 🐾 OBTENER MIS MASCOTAS
   async obtenerMisMascotas(): Promise<Mascota[]> {
-  const token = localStorage.getItem('token');
-  console.log('TOKEN:', token);
+    const token = localStorage.getItem('token');
+    console.log('TOKEN:', token);
 
-  const response = await axios.get<Mascota[]>(
-    'http://localhost:3000/mascotas/mis-mascotas',
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+    const response = await axios.get<Mascota[]>(
+      `${this.apiUrl}/mis-mascotas`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-  return response.data; //Solo los datos
+    return response.data;
+  }
+
+  // ➕ CREAR MASCOTA
+  async crearMascota(mascota: any) {
+    const token = localStorage.getItem('token');
+    console.log('ENVIANDO MASCOTA:', mascota);
+
+    const response = await axios.post(
+      this.apiUrl,
+      mascota,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  }
 }
-
-  //AQUI CREO UNA MASCOTA POR MEDIO DEL FORMULARIO
-async crearMascota(mascota: any) {
-  const token = localStorage.getItem('token');
-  console.log('ENVIANDO MASCOTA:', mascota);
-
-
-  const response = await axios.post(
-    'http://localhost:3000/mascotas',
-    mascota,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-
-  return response.data;
-}
-
-}
-

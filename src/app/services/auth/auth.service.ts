@@ -1,32 +1,27 @@
 import { Injectable } from "@angular/core";
 import axios from "axios";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-
 export class AuthService {
-  
 
-    async login(correo: string, contrasena: string) {
-        const urlPrincipal = 'http://localhost:3000/auth/';
-        const headers = {
-            'token': localStorage.getItem('token') || ''
-        }
+  private apiUrl = environment.apiUrl + '/auth';
 
-        const payload = {
-            correo_electronico: correo,
-            contrasena: contrasena
-        }
-        try {
-            const response = await axios.post(urlPrincipal + 'login', payload);
-            return response.data;
-        } catch (error) {
-            throw error;
-        }
+  async login(correo: string, contrasena: string) {
+    const payload = {
+      correo_electronico: correo,
+      contrasena: contrasena
+    };
 
-    }
+    const response = await axios.post(
+      `${this.apiUrl}/login`,
+      payload
+    );
 
+    return response.data;
+  }
 
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
@@ -40,6 +35,4 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario_nombre');
   }
-
 }
-
