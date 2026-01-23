@@ -47,6 +47,7 @@ export class PerfilComponent {
       const nuevaMascota = await this.mascotasService.crearMascota(this.mascota);
       console.log('Mascota guardada:', nuevaMascota);
       this.abrirModalFelicidades();
+      console.error('Detalles del error 400:', nuevaMascota);
 
       // limpiar formulario
       this.mascota = {
