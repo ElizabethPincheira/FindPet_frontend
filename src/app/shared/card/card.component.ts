@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { Mascota } from '../../services/mascotas/mascotas.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { PublicacionesService } from '../../services/publicaciones/publicaciones.service';
 import { CommonModule } from '@angular/common';
+declare var bootstrap: any;
 
 declare var bootstrap: any;
 
@@ -14,6 +15,8 @@ declare var bootstrap: any;
   styleUrl: './card.component.css'
 })
 export class CardComponent {
+
+  @ViewChild('modalFelicidadesP') modalFelicidades!: ElementRef;
 
   @Input() mascota!: Mascota;
 
@@ -54,7 +57,7 @@ export class CardComponent {
       modalPublicacion.hide();
 
       // abrir modal de felicitaciones
-      const modalFelicidadesEl = document.getElementById('modalFelicidades');
+      const modalFelicidadesEl = document.getElementById('modalFelicidadesP');
       const modalFelicidades = new bootstrap.Modal(modalFelicidadesEl);
       modalFelicidades.show();
 
@@ -64,7 +67,7 @@ export class CardComponent {
   }
 
   cerrarModales() {
-    const modalFelicidadesEl = document.getElementById('modalFelicidades');
+    const modalFelicidadesEl = document.getElementById('modalFelicidadesP');
     const modalFelicidades = bootstrap.Modal.getInstance(modalFelicidadesEl);
     modalFelicidades.hide();
   }

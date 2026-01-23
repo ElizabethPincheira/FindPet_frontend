@@ -23,9 +23,19 @@ export class PublicacionesService {
   async crearPublicacion(publicacion: Publicacion): Promise<Publicacion> {
     const token = localStorage.getItem('token');
 
+    // Filtrar solo los campos necesarios
+    const publicacionLimpia = {
+      titulo: publicacion.titulo,
+      descripcion: publicacion.descripcion,
+      estado: publicacion.estado,
+      region: publicacion.region,
+      comuna: publicacion.comuna,
+      mascota_id: publicacion.mascota_id
+    };
+
     const response = await axios.post(
       this.apiUrl,
-      publicacion,
+      publicacionLimpia,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MascotasComponent } from '../mascotas/mascotas.component';
 import { MascotasService } from '../../services/mascotas/mascotas.service';
@@ -15,6 +15,8 @@ declare var bootstrap: any;
 
 export class PerfilComponent {
 
+
+  @ViewChild('modalFelicidades') modalFelicidades!: ElementRef;
 
   constructor(private mascotasService: MascotasService) { }
 
@@ -44,10 +46,13 @@ export class PerfilComponent {
 
   async guardarMascota() {
     try {
-      const nuevaMascota = await this.mascotasService.crearMascota(this.mascota);
+      // SOLUCIÓN ERROR 400: Enviamos una copia limpia sin IDs ni objetos extra
+      const datosEnvio = { ...this.mascota };
+      
+      const nuevaMascota = await this.mascotasService.crearMascota(datosEnvio);
       console.log('Mascota guardada:', nuevaMascota);
       this.abrirModalFelicidades();
-      console.error('Detalles del error 400:', nuevaMascota);
+      
 
       // limpiar formulario
       this.mascota = {
@@ -67,21 +72,26 @@ export class PerfilComponent {
 
   abrirModalFelicidades() {
     const modalFelicidadesEl = document.getElementById('modalFelicidades');
-    const modal = new bootstrap.Modal(modalFelicidadesEl);
-    modal.show();
+    if (modalFelicidadesEl) {
+      const modal = bootstrap.Modal.getOrCreateInstance(modalFelicidadesEl);
+      modal.show();
+    }
   }
 
 
   cerrarModales() {
-    // Cierra el modal de felicitaciones
+    // SOLUCIÓN TYPEERROR: Uso de getOrCreateInstance para evitar el 'null'
     const modalFelicidadesEl = document.getElementById('modalFelicidades');
-    const modalFelicidades = bootstrap.Modal.getInstance(modalFelicidadesEl);
-    modalFelicidades.hide();
+    if (modalFelicidadesEl) {
+      const modalFelicidades = bootstrap.Modal.getOrCreateInstance(modalFelicidadesEl);
+      modalFelicidades.hide();
+    }
 
-    // Cierra el modal de formulario de mascota
     const modalMascotaEl = document.getElementById('modalMascota');
-    const modalMascota = bootstrap.Modal.getInstance(modalMascotaEl);
-    modalMascota.hide();
+    if (modalMascotaEl) {
+      const modalMascota = bootstrap.Modal.getOrCreateInstance(modalMascotaEl);
+      modalMascota.hide();
+    }
   }
 
 

@@ -42,11 +42,22 @@ export class MascotasService {
   //CREAR MASCOTA
   async crearMascota(mascota: any) {
     const token = localStorage.getItem('token');
-    console.log('ENVIANDO MASCOTA:', mascota);
+    
+    // Filtrar solo los campos necesarios para evitar enviar datos innecesarios
+    const mascotaLimpia = {
+      nombre: mascota.nombre,
+      tipo_mascota: mascota.tipo_mascota,
+      descripcion: mascota.descripcion,
+      raza: mascota.raza || '',
+      color: mascota.color || '',
+      numero_chip: mascota.numero_chip || ''
+    };
+    
+    console.log('ENVIANDO MASCOTA:', mascotaLimpia);
 
     const response = await axios.post(
       this.apiUrl,
-      mascota,
+      mascotaLimpia,
       {
         headers: {
           Authorization: `Bearer ${token}`,
