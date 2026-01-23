@@ -1,0 +1,46 @@
+/* Estilos para la página de publicaciones */
+.container-fluid {
+  background-color: #f8f9fa;
+}
+
+h2 {
+  color: #333;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.text-muted {
+  color: #999 !important;
+  font-size: 1.1rem;
+}
+
+.alert {
+  border-radius: 8px;
+  border: none;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* Grid responsivo */
+.row {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}

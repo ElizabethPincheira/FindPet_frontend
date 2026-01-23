@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FiltrosComponent } from '../../shared/filtros/filtros.component';
 import { BannerComponent } from '../../shared/banner/banner.component';
+import { PublicacionesComponent } from '../publicaciones/publicaciones.component';
 
 @Component({
   selector: 'app-home',
-  imports: [BannerComponent, FiltrosComponent],
+  imports: [BannerComponent, FiltrosComponent, PublicacionesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,0 +1,9 @@
+/* Estilos responsivos para la página de mascotas */
+.container-fluid {
+  padding: 2rem 1rem;
+}
+
+/* Asegurar que las tarjetas tengan espaciado consistente */
+.row {
+  margin: 0;
+}

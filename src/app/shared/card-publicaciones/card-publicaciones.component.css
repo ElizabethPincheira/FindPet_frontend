@@ -1,0 +1,73 @@
+.card-publicacion {
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card-publicacion:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  color: #333;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card-text {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.description-text {
+  font-size: 0.9rem;
+  color: #777;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.65rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.bg-status {
+  display: inline-block;
+}
+
+/* Clases para diferentes estados */
+.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+}
+
+.bg-success {
+  background-color: #198754 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+  }
+}

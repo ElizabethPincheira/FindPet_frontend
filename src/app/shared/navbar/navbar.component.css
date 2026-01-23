@@ -1,0 +1,18 @@
+/* Estilo para links activos en navbar principal */
+.nav-link.active {
+  color: #ff69b4 !important;
+  font-weight: bold;
+  border-bottom: 3px solid #ff69b4;
+}
+
+/* Estilo para links activos en dropdown */
+.dropdown-item.active-dropdown {
+  background-color: #ffe0f0;
+  color: #ff69b4 !important;
+  font-weight: bold;
+}
+
+/* Efectos hover adicionales */
+.nav-link:hover {
+  transition: color 0.3s ease;
+}

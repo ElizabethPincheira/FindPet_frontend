@@ -2,21 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PublicacionesService, Publicacion } from '../../services/publicaciones/publicaciones.service';
+import { CardPublicacionesComponent } from '../../shared/card-publicaciones/card-publicaciones.component';
 
 @Component({
   selector: 'app-publicaciones',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CardPublicacionesComponent],
+  standalone: true,
   templateUrl: './publicaciones.component.html',
   styleUrl: './publicaciones.component.css'
 })
 export class PublicacionesComponent implements OnInit {
-  publicaciones: Publicacion[] = [];
+  publicaciones: any[] = [];
   loading = false;
   error: string | null = null;
 
-  constructor(private publicacionesService: PublicacionesService) {}
+  constructor(private publicacionesService: PublicacionesService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cargarPublicaciones();
   }
 
@@ -35,7 +37,7 @@ export class PublicacionesComponent implements OnInit {
 
   async eliminarPublicacion(id: number | undefined): Promise<void> {
     if (!id) return;
-    
+
     try {
       await this.publicacionesService.eliminarPublicacion(id);
       this.publicaciones = this.publicaciones.filter(p => p.publicacion_id !== id);

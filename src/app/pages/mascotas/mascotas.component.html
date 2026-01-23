@@ -1,11 +1,14 @@
-<div class="container">
-    <div class="container text-center">
-        <h2>Mis mascotas</h2>
-        <br />
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2>Mis mascotas</h2>
+  </div>
+
+  <div class="row g-4">
+    <div
+      class="col-12 col-sm-6 col-md-4"
+      *ngFor="let mascota of mascotas"
+    >
+      <app-card [mascota]="mascota"></app-card>
     </div>
-    <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let mascota of mascotas">
-            <app-card [mascota]="mascota"></app-card>
-        </div>
-    </div>
+  </div>
 </div>

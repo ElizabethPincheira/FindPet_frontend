@@ -1,30 +1,51 @@
-.btn-pink {
-  background-color: #e83e8c;
-  border-color: #e83e8c;
-  color: white;
+.card {
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
 }
 
-/* Hover */
-.btn-pink:hover {
-  background-color: #d63384;
-  border-color: #d63384;
-  color: white;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Focus (accesibilidad) */
-.btn-pink:focus {
-  box-shadow: 0 0 0 0.25rem rgba(232, 62, 140, 0.4);
+.card-body {
+  padding: 1.25rem;
 }
 
-/* Active (cuando se presiona) */
-.btn-pink:active {
-  background-color: #c2256e;
-  border-color: #c2256e;
+.card-title {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
 }
 
-/* Disabled */
-.btn-pink:disabled {
-  background-color: #f1a7c6;
-  border-color: #f1a7c6;
-  cursor: not-allowed;
+.card-text {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: #555;
 }
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.mascota-card {
+  width: 100%;
+
+  margin: 0 auto; /* centra SIN flex */
+}
+
+.mascota-card {
+  width: 100%;
+  height: 100%;
+}
+
+.mascota-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+
