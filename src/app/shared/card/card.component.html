@@ -1,63 +1,78 @@
-<div class="card h-100 shadow-sm" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{ mascota.nombre }}</h5>
-        <p class="card-text">{{ mascota.descripcion}}</p>
-        <a href="#" class="btn btn-primary btn-pink">Ver mascota</a>
-    </div>
-
-    <div>
+<div class="d-flex justify-content-center align-items-center p-4">
+    <div class="card h-100 shadow-sm align-items-center" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Nombre: {{ mascota.nombre }}</h5>
+            <p class="card-text">Descripción: {{ mascota.descripcion}}</p>
+            <p class="card-text">Tipo de mascota: {{ mascota.tipo_mascota}}</p>
+            <p class="card-text">Raza: {{ mascota.raza}}</p>
+            <p class="card-text">Color: {{ mascota.color}}</p>
+            <p class="card-text">Número de chip: {{ mascota.numero_chip}}</p>
+            <a href="#" class="btn btn-primary btn-pink">Ver mascota</a>
+        </div>
 
         <!-- BOTÓN PUBLICACION -->
-        <button class="btn btn-pink" data-bs-toggle="modal" [attr.data-bs-target]="'#modalPublicacion' + mascota.mascota_id">
+        <button class="btn btn-pink" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#modalPublicacion' + mascota.mascota_id">
             Crea una publicacion
         </button>
+        <br>
 
-        <!-- MODAL PUBLICACION -->
-        <div class="modal fade" id="modalPublicacion{{ mascota.mascota_id }}">
-            <div class="modal-dialog">
-                <div class="modal-content">
 
-                    <form #reporteForm="ngForm" (ngSubmit)="guardarPublicacion()">
 
-                        <div class="modal-header">
-                            <h5 class="modal-title">Crear publicación</h5>
-                            <button class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
+        <div>
 
-                        <div class="modal-body">
-                            <input class="form-control mb-2" placeholder="Título *" name="titulo"
-                                [(ngModel)]="publicacion.titulo" required />
 
-                            <textarea class="form-control mb-2" placeholder="Descripción *" name="descripcion"
-                                [(ngModel)]="publicacion.descripcion" required></textarea>
 
-                            <select class="form-select mb-2" name="estado" [(ngModel)]="publicacion.estado" required>
-                                <option value="" disabled>Estado *</option>
-                                <option value="Perdida">Perdida</option>
-                                <option value="Robada">Robada</option>
-                                <option value="Adopcion">En adopción</option>
-                            </select>
+            <!-- MODAL PUBLICACION -->
+            <div class="modal fade" id="modalPublicacion{{ mascota.mascota_id }}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
-                            <input class="form-control mb-2" placeholder="Región *" name="region"
-                                [(ngModel)]="publicacion.region" required />
+                        <form #reporteForm="ngForm" (ngSubmit)="guardarPublicacion()">
 
-                            <input class="form-control" placeholder="Comuna *" name="comuna"
-                                [(ngModel)]="publicacion.comuna" required />
-                        </div>
+                            <div class="modal-header">
+                                <h5 class="modal-title">Crear publicación</h5>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
 
-                        <div class="modal-footer">
-                            <button class="btn btn-pink" data-bs-dismiss="modal">Cerrar</button>
-                            <button class="btn btn-pink">
-                                Guardar publicación
-                            </button>
-                        </div>
+                            <div class="modal-body">
+                                <input class="form-control mb-2" placeholder="Título *" name="titulo"
+                                    [(ngModel)]="publicacion.titulo" required />
 
-                    </form>
+                                <textarea class="form-control mb-2" placeholder="Descripción *" name="descripcion"
+                                    [(ngModel)]="publicacion.descripcion" required></textarea>
+
+                                <select class="form-select mb-2" name="estado" [(ngModel)]="publicacion.estado"
+                                    required>
+                                    <option value="" disabled>Estado *</option>
+                                    <option value="Perdida">Perdida</option>
+                                    <option value="Robada">Robada</option>
+                                    <option value="Adopcion">En adopción</option>
+                                </select>
+
+                                <input class="form-control mb-2" placeholder="Región *" name="region"
+                                    [(ngModel)]="publicacion.region" required />
+
+                                <input class="form-control" placeholder="Comuna *" name="comuna"
+                                    [(ngModel)]="publicacion.comuna" required />
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-pink" data-bs-dismiss="modal">Cerrar</button>
+                                <button class="btn btn-pink">
+                                    Guardar publicación
+                                </button>
+                            </div>
+                            <br>
+
+
+                        </form>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
-
 </div>

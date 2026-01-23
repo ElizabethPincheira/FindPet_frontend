@@ -11,6 +11,7 @@ export interface Mascota {
   raza: string;
   color: string;
   descripcion: string;
+  numero_chip: string;
 }
 
 @Injectable({
