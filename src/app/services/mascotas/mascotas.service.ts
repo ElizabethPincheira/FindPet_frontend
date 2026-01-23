@@ -18,10 +18,10 @@ export interface Mascota {
 })
 export class MascotasService {
 
-    private apiUrl = environment.apiUrl + '/auth';
+    private apiUrl = environment.apiUrl + '/mascotas';
 
 
-  // 🐾 OBTENER MIS MASCOTAS
+  //OBTENER MIS MASCOTAS
   async obtenerMisMascotas(): Promise<Mascota[]> {
     const token = localStorage.getItem('token');
     console.log('TOKEN:', token);
@@ -38,7 +38,7 @@ export class MascotasService {
     return response.data;
   }
 
-  // ➕ CREAR MASCOTA
+  //CREAR MASCOTA
   async crearMascota(mascota: any) {
     const token = localStorage.getItem('token');
     console.log('ENVIANDO MASCOTA:', mascota);

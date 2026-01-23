@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Publicaciones</h2>
+
+  <div *ngIf="loading" class="alert alert-info">Cargando publicaciones...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="!loading && publicaciones.length === 0" class="alert alert-warning">
+    No hay publicaciones disponibles.
+  </div>
+
+  <div class="row" *ngIf="!loading && publicaciones.length > 0">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let pub of publicaciones">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ pub.titulo }}</h5>
+          <p class="card-text">{{ pub.descripcion }}</p>
+          
+          <div class="mb-2">
+            <span class="badge bg-{{ getStatusColor(pub.estado) }}">{{ pub.estado }}</span>
+          </div>
+          
+          <div class="card-text small text-muted">
+            <p><strong>Región:</strong> {{ pub.region }}</p>
+            <p><strong>Comuna:</strong> {{ pub.comuna }}</p>
+          </div>
+        </div>
+        <div class="card-footer bg-white">
+          <button 
+            class="btn btn-sm btn-danger" 
+            (click)="eliminarPublicacion(pub.publicacion_id)"
+            title="Eliminar publicación">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
