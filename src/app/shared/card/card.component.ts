@@ -61,8 +61,14 @@ export class CardComponent {
 
       // abrir modal de felicitaciones
       const modalFelicidadesEl = document.getElementById('modalFelicidadesP');
-      const modalFelicidades = new bootstrap.Modal(modalFelicidadesEl);
-      modalFelicidades.show();
+
+      if (modalFelicidadesEl) {
+        const modalFelicidades =
+          bootstrap.Modal.getInstance(modalFelicidadesEl)
+          || new bootstrap.Modal(modalFelicidadesEl);
+
+        modalFelicidades.show();
+      }
 
     } catch (error: any) {
       console.error('Error detallado al guardar publicación:', error);
