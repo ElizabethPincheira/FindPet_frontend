@@ -17,6 +17,7 @@ export interface Publicacion {
   providedIn: 'root',
 })
 export class PublicacionesService {
+  
   private apiUrl = environment.apiUrl + '/publicaciones';
 
   // CREAR PUBLICACIÓN

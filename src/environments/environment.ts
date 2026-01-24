@@ -1,4 +1,5 @@
+
 export const environment = {
-  production: true,
-  apiUrl: 'https://findpet-backend-1.onrender.com'
+  production: false,
+  apiUrl: 'http://localhost:3000'
 };
