@@ -61,8 +61,10 @@ export class CardComponent {
       const modalFelicidades = new bootstrap.Modal(modalFelicidadesEl);
       modalFelicidades.show();
 
-    } catch (error) {
-      console.error('Error al guardar publicación:', error);
+    } catch (error: any) {
+      console.error('Error detallado al guardar publicación:', error);
+      const errorMsg = error.response?.data?.message || error.message || 'Error desconocido';
+      alert(`Error al guardar la publicación: ${errorMsg}`);
     }
   }
 

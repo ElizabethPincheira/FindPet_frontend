@@ -33,17 +33,26 @@ export class PublicacionesService {
       mascota_id: publicacion.mascota_id
     };
 
-    const response = await axios.post(
-      this.apiUrl,
-      publicacionLimpia,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    console.log('URL:', this.apiUrl);
+    console.log('Token:', token);
+    console.log('Datos:', publicacionLimpia);
 
-    return response.data;
+    try {
+      const response = await axios.post(
+        this.apiUrl,
+        publicacionLimpia,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error: any) {
+      console.error('Error detallado:', error.response?.status, error.response?.data);
+      throw error;
+    }
   }
 
   // OBTENER TODAS LAS PUBLICACIONES
