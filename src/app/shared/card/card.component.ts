@@ -5,7 +5,7 @@ import { PublicacionesService } from '../../services/publicaciones/publicaciones
 import { CommonModule } from '@angular/common';
 declare var bootstrap: any;
 
-declare var bootstrap: any;
+
 
 @Component({
   selector: 'app-card',
@@ -28,7 +28,7 @@ export class CardComponent {
     comuna: ''
   };
 
-  constructor(private publicacionesService: PublicacionesService) {}
+  constructor(private publicacionesService: PublicacionesService) { }
 
   async guardarPublicacion(form: NgForm, mascotaId: number) {
     if (form.invalid) return;
@@ -53,8 +53,11 @@ export class CardComponent {
 
       // cerrar modal de publicación
       const modalPublicacionEl = document.getElementById(`modalPublicacion${mascotaId}`);
-      const modalPublicacion = bootstrap.Modal.getInstance(modalPublicacionEl);
+      const modalPublicacion = bootstrap.Modal.getInstance(modalPublicacionEl)
+        || new bootstrap.Modal(modalPublicacionEl);
+
       modalPublicacion.hide();
+
 
       // abrir modal de felicitaciones
       const modalFelicidadesEl = document.getElementById('modalFelicidadesP');
@@ -67,6 +70,20 @@ export class CardComponent {
       alert(`Error al guardar la publicación: ${errorMsg}`);
     }
   }
+
+
+  abrirModal(mascotaId: number) {
+    const modalEl = document.getElementById(`modalPublicacion${mascotaId}`);
+    if (!modalEl) return;
+
+    const modal = new bootstrap.Modal(modalEl, {
+      backdrop: 'static',
+      keyboard: false
+    });
+
+    modal.show();
+  }
+
 
   cerrarModales() {
     const modalFelicidadesEl = document.getElementById('modalFelicidadesP');
