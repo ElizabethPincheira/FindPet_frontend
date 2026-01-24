@@ -18,7 +18,13 @@ export class CardComponent {
 
   @ViewChild('modalFelicidadesP') modalFelicidades!: ElementRef;
 
-  @Input() mascota!: Mascota;
+
+  // ANY TAMBIEN ES TEMPORAL SOLO PARA MOSTRAR CARD EN EL FRONTEND
+  @Input() mascota!: any;
+
+
+  //ESTO ES TEMPORAL HASTA CREAR LA TABLA FOTOGRAFIAS
+    fotoDefault = 'assets/images/img_card.jpg';
 
   publicacion = {
     titulo: '',

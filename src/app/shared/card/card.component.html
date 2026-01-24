@@ -1,5 +1,8 @@
 <div class="card shadow-sm h-100 mascota-card">
-    <img src="..." class="card-img-top img-fluid" alt="Mascota" />
+<!--<img src="..." class="card-img-top img-fluid" alt="Mascota" /> -->
+
+    <img [src]="fotoDefault" class="card-img-top" alt="Mascota">
+
 
     <div class="card-body d-flex flex-column">
         <h5 class="card-title text-center">{{ mascota.nombre }}</h5>

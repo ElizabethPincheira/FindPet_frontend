@@ -11,7 +11,14 @@ import { CommonModule } from '@angular/common';
 export class CardPublicacionesComponent {
 
   @Input() publicacion: any;
+
+  // ANY TAMBIEN ES TEMPORAL SOLO PARA MOSTRAR CARD EN EL FRONTEND
   @Input() mascota: any;
+
+
+    //ESTO ES TEMPORAL HASTA CREAR LA TABLA FOTOGRAFIAS
+
+  fotoDefault = 'assets/images/img_card.jpg';
 
   getBadgeClass(estado: string): string {
     switch(estado) {
